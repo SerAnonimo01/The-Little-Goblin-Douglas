@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://b22ri2yg2h8it"]
+
+[ext_resource type="Script" path="res://UI/GameUi/game_ui.gd" id="1_8ix1n"]
+[ext_resource type="Texture2D" uid="uid://cwmmvqdc3vklc" path="res://addons/Tiny Swords/UI/Banners/Banner_Connection_Up.png" id="1_neluk"]
+[ext_resource type="Texture2D" uid="uid://d4mgkttlkuck2" path="res://addons/Tiny Swords/Resources/Resources/M_Idle.png" id="2_bsmfv"]
+
+[sub_resource type="SystemFont" id="SystemFont_dtuas"]
+font_names = PackedStringArray("Footlight MT")
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhjsd"]
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvpf6"]
+texture = ExtResource("1_neluk")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 0, 128, 160)
+
+[sub_resource type="SystemFont" id="SystemFont_msx2s"]
+font_names = PackedStringArray("Fantasy")
+subpixel_positioning = 0
+multichannel_signed_distance_field = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_wr4ff"]
+font = SubResource("SystemFont_msx2s")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih2y7"]
+atlas = ExtResource("2_bsmfv")
+region = Rect2(32, 48, 64, 56)
+
+[node name="GameUi" type="CanvasLayer"]
+scale = Vector2(3.34003, 3.34003)
+transform = Transform2D(3.34003, 0, 0, 3.34003, 0, 0)
+script = ExtResource("1_8ix1n")
+
+[node name="TimerLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -424.504
+offset_top = 3.89218
+offset_right = -383.504
+offset_bottom = 22.8922
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = SubResource("SystemFont_dtuas")
+text = "00:00"
+label_settings = SubResource("LabelSettings_bhjsd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.284
+offset_top = 10.4789
+offset_right = -245.284
+offset_bottom = 50.479
+grow_horizontal = 2
+scale = Vector2(1.09478, 1.09478)
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_xvpf6")
+
+[node name="MeatLabel" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.4448
+offset_top = 6.29004
+offset_right = 23.5552
+offset_bottom = 29.29
+grow_horizontal = 2
+scale = Vector2(0.823454, 0.823454)
+text = "0"
+label_settings = SubResource("LabelSettings_wr4ff")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.967
+offset_top = -20.0361
+offset_right = 56.033
+offset_bottom = 35.9639
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.227544, 0.227544)
+texture = SubResource("AtlasTexture_ih2y7")

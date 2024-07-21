@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpx6byw5k4pw3"]
+
+[ext_resource type="Texture2D" uid="uid://ctiwa2l3iqs4l" path="res://addons/Tiny Swords/Factions/Goblins/Troops/Torch/Purple/Torch_Purple.png" id="1_kn3k4"]
+[ext_resource type="PackedScene" uid="uid://df8hq3co0t0nw" path="res://Player/player.tscn" id="2_mdaqy"]
+[ext_resource type="Texture2D" uid="uid://cfaqmqpjna6uv" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Yellow/Warrior_Yellow.png" id="3_o8bvy"]
+[ext_resource type="Texture2D" uid="uid://bmxw32ipbrvt6" path="res://addons/Tiny Swords/Factions/Goblins/Troops/Barrel/Red/Barrel_Red.png" id="5_333kp"]
+[ext_resource type="Texture2D" uid="uid://d2d05m851gk28" path="res://addons/Tiny Swords/Effects/Explosion/Explosions.png" id="6_dt04h"]
+[ext_resource type="Texture2D" uid="uid://7v0tdesn81cb" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Yellow/Pawn_Yellow.png" id="7_66rse"]
+[ext_resource type="PackedScene" uid="uid://wem3m5aa6fe4" path="res://enimies/creatures/barrel/barrel.tscn" id="7_fphfu"]
+[ext_resource type="PackedScene" uid="uid://hifisj34a04y" path="res://enimies/creatures/warrior/warrior.tscn" id="9_e8h2x"]
+[ext_resource type="PackedScene" uid="uid://c128qxaoqr4fv" path="res://enimies/creatures/pawn/pawn.tscn" id="9_hoai0"]
+[ext_resource type="PackedScene" uid="uid://6iakea8q6iym" path="res://misc/meat/meat/meat.tscn" id="10_eg1le"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_mdaqy")]
+
+[node name="TorchPurple" type="Sprite2D" parent="."]
+position = Vector2(-978, -358)
+texture = ExtResource("1_kn3k4")
+
+[node name="WarriorYellow" type="Sprite2D" parent="."]
+position = Vector2(-2267, 25)
+texture = ExtResource("3_o8bvy")
+
+[node name="BarrelRed" type="Sprite2D" parent="."]
+position = Vector2(-1200, 569)
+texture = ExtResource("5_333kp")
+
+[node name="Explosions" type="Sprite2D" parent="."]
+position = Vector2(-2114, 938)
+texture = ExtResource("6_dt04h")
+
+[node name="Barrel" parent="." instance=ExtResource("7_fphfu")]
+position = Vector2(568, 339)
+
+[node name="PawnYellow" type="Sprite2D" parent="."]
+position = Vector2(-3515, -29)
+texture = ExtResource("7_66rse")
+
+[node name="Pawn" parent="." instance=ExtResource("9_hoai0")]
+position = Vector2(929, 298)
+
+[node name="Warrior" parent="." instance=ExtResource("9_e8h2x")]
+position = Vector2(788, 129)
+
+[node name="Meat" parent="." instance=ExtResource("10_eg1le")]
+position = Vector2(268, 541)
+
+[node name="Meat2" parent="." instance=ExtResource("10_eg1le")]
+position = Vector2(1040, 69)

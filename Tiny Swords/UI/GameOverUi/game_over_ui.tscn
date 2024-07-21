@@ -1,0 +1,308 @@
+[gd_scene load_steps=17 format=3 uid="uid://cynrka1ew84ac"]
+
+[ext_resource type="Texture2D" uid="uid://2sk2n0j22qyj" path="res://addons/Tiny Swords/UI/Ribbons/Ribbon_Yellow_3Slides.png" id="1_q5bh5"]
+[ext_resource type="Script" path="res://UI/GameOverUi/game_over_ui.gd" id="1_u107b"]
+[ext_resource type="Texture2D" uid="uid://cl3t5b1qetttl" path="res://addons/Tiny Swords/UI/Buttons/Button_Hover_3Slides.png" id="2_iqo44"]
+[ext_resource type="Texture2D" uid="uid://cm3xalhlq4knw" path="res://addons/sandclock_V_1_1/1.png" id="3_x3ffc"]
+[ext_resource type="Texture2D" uid="uid://c404rutpqeyu5" path="res://addons/Tiny Swords/Factions/Knights/Troops/Dead/Dead.png" id="4_l10yd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg6mb"]
+texture = ExtResource("1_q5bh5")
+texture_margin_left = 64.0
+texture_margin_right = 64.0
+axis_stretch_horizontal = 2
+
+[sub_resource type="SystemFont" id="SystemFont_xijyt"]
+font_names = PackedStringArray("Footlight MT")
+multichannel_signed_distance_field = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_rns8d"]
+font = SubResource("SystemFont_xijyt")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fm3mi"]
+texture = ExtResource("2_iqo44")
+texture_margin_left = 32.0
+texture_margin_right = 32.0
+axis_stretch_horizontal = 2
+
+[sub_resource type="SystemFont" id="SystemFont_md5m0"]
+font_names = PackedStringArray("Footlight MT")
+multichannel_signed_distance_field = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ps5p"]
+font = SubResource("SystemFont_md5m0")
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itjai"]
+texture = ExtResource("3_x3ffc")
+region_rect = Rect2(0, 0, 512, 512)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq086"]
+texture = ExtResource("4_l10yd")
+region_rect = Rect2(800, 48, 64, 64)
+
+[sub_resource type="Animation" id="Animation_7igr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(378, 35)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContinuePanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimePanel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathMonstersPanel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_065ro"]
+resource_name = "default"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.6),
+"transitions": PackedFloat32Array(1, 0.233258),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9),
+"transitions": PackedFloat32Array(0.225313, 2.14355, 1),
+"update": 0,
+"values": [Vector2(378, -156), Vector2(378, 69), Vector2(378, 35)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContinuePanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2.4),
+"transitions": PackedFloat32Array(4.43829, 0.297302),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimePanel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1.6),
+"transitions": PackedFloat32Array(1, 0.233),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DeathMonstersPanel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 1.6),
+"transitions": PackedFloat32Array(1, 0.233),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcvfl"]
+_data = {
+"RESET": SubResource("Animation_7igr3"),
+"default": SubResource("Animation_065ro")
+}
+
+[node name="GameOverUi" type="CanvasLayer"]
+script = ExtResource("1_u107b")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.556863)
+
+[node name="TopPanel" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 378.0
+offset_top = 35.0
+offset_right = 603.0
+offset_bottom = 95.0
+grow_horizontal = 2
+scale = Vector2(1.75621, 1.75621)
+theme_override_styles/panel = SubResource("StyleBoxTexture_bg6mb")
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOverLabel" type="Label" parent="TopPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.8471
+offset_top = 11.3882
+offset_right = 48.153
+offset_bottom = 34.3882
+grow_horizontal = 2
+scale = Vector2(1.07727, 1.07727)
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_rns8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinuePanel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -161.0
+offset_right = 30.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.50753, 1.50753)
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm3mi")
+
+[node name="ContinueLabel" type="Label" parent="ContinuePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.6799
+offset_top = 5.30665
+offset_right = 30.3201
+offset_bottom = 28.3066
+grow_horizontal = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_0ps5p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimePanel" type="Panel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -69.0
+offset_right = 62.0
+offset_bottom = -29.0
+grow_vertical = 0
+scale = Vector2(1.05321, 1.05321)
+theme_override_styles/panel = SubResource("StyleBoxTexture_itjai")
+
+[node name="TimeLabel" type="Label" parent="TimePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 41.777
+offset_top = -29.5558
+offset_right = 102.777
+offset_bottom = -6.55576
+grow_vertical = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_0ps5p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathMonstersPanel" type="Panel" parent="."]
+offset_left = 142.0
+offset_top = 579.0
+offset_right = 182.0
+offset_bottom = 619.0
+scale = Vector2(1.14999, 1.14999)
+theme_override_styles/panel = SubResource("StyleBoxTexture_gq086")
+
+[node name="DeathMonstersLabel" type="Label" parent="DeathMonstersPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.4352
+offset_top = -30.4347
+offset_right = 91.4352
+offset_bottom = -7.43467
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_0ps5p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hcvfl")
+}
+autoplay = "default"

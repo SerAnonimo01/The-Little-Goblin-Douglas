@@ -1,0 +1,145 @@
+[gd_scene load_steps=12 format=3 uid="uid://wem3m5aa6fe4"]
+
+[ext_resource type="Texture2D" uid="uid://bmxw32ipbrvt6" path="res://addons/Tiny Swords/Factions/Goblins/Troops/Barrel/Red/Barrel_Red.png" id="1_0762a"]
+[ext_resource type="Script" path="res://enimies/enemy_explosion.gd" id="1_ox1ii"]
+[ext_resource type="PackedScene" uid="uid://dim8kgj2hfbsc" path="res://misc/effects/explosion.tscn" id="2_mgsf7"]
+
+[sub_resource type="Animation" id="Animation_7lvaj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barrel_Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7v8ht"]
+resource_name = "explosion"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barrel_Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_smxck"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barrel_Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jkmga"]
+resource_name = "spy"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barrel_Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kving"]
+_data = {
+"RESET": SubResource("Animation_7lvaj"),
+"explosion": SubResource("Animation_7v8ht"),
+"idle": SubResource("Animation_smxck"),
+"spy": SubResource("Animation_jkmga")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25lkq"]
+radius = 26.0
+height = 52.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhx3s"]
+radius = 85.0235
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ch87k"]
+radius = 156.003
+
+[node name="Barrel" type="CharacterBody2D" groups=["barrel"]]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_ox1ii")
+death_explosion = ExtResource("2_mgsf7")
+
+[node name="Barrel_Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -33)
+texture = ExtResource("1_0762a")
+hframes = 6
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["enemies"]]
+libraries = {
+"": SubResource("AnimationLibrary_kving")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_25lkq")
+
+[node name="Timer_Explosion" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="Timer_Spy" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Area_Explosion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Explosion"]
+position = Vector2(1, -29)
+shape = SubResource("CircleShape2D_hhx3s")
+debug_color = Color(0.566718, 0.551702, 0.227914, 0.42)
+
+[node name="Area_Spy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Spy"]
+position = Vector2(1, -29)
+shape = SubResource("CircleShape2D_ch87k")
+debug_color = Color(0.860649, 0.353, 0.210704, 0.42)
+
+[connection signal="timeout" from="Timer_Explosion" to="." method="_on_timer_explosion_timeout"]
+[connection signal="area_entered" from="Area_Explosion" to="." method="_on_area_explosion_area_entered"]
+[connection signal="area_entered" from="Area_Spy" to="." method="_on_area_spy_area_entered"]
