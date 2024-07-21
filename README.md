@@ -16,6 +16,7 @@
 ## História ✍🏻
 O Reino dos Cavaleiros estava em queda, minas sem ouro, moradias caindo sozinhas, ao verem o outro Reino em ascensão, dos Goblins, a única forma de reerguer o próprio seria exterminando todos os moradores de lá para enfim desfrutarem da riqueza, mas o pequeno Goblin Douglas não irá "deixar barato", mesmo sendo o último sobrevivente de seu reino, defenderá ele até o final.
 
+Link: [The Little Goblin Douglas](https://anonymoussstudio.itch.io/the-little-goblin-douglas)
 
 ## Sobre o Jogo 🎮
 A principal influencia da criação desse jogo foi [Vampire Survivors](https://poncle.itch.io/vampire-survivors), um jogo casual de terror gótico com elementos roguelite, o principal objetivo é aniquilar os milhares de monstros que aparecem pelo caminho e melhorar as habilidades do personagem.
